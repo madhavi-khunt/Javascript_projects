@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div> 
+        
+    </div>
+    <div id="app">
+        <div id="a">
+            <h1 id="h">CORONA  &nbsp;API</h1>
+        </div>
+        <div id="box">
+            <div id="ttl">
+                    <input type="text" id="countryInput" placeholder="Type a country name">
+                    <button onclick="searchCountry()" id="bt">Search</button>
+            </div>
+            <div id="inner">
+                <div id="i" class="i1">
+                    <div id="in">
+                        <i class="ri-building-4-fill"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Country</h2>
+                        <h2 id="nm"></h2>
+                    </div>
+                </div>
+                <div id="i" class="i2">
+                    <div id="in">
+                        <i class="ri-flag-line"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Flag</h2>
+                        <img src="" id="im" alt="">
+                    </div>
+                </div>
+                <div id="i" class="i3">
+                    <div id="in">
+                        <i class="ri-dashboard-3-fill"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Active Cases</h2>
+                        <h2 id="c"></h2>
+                    </div>
+                </div>
+                <div id="i" class="i4">
+                    <div id="in">
+                        <i class="ri-close-fill"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Deaths Cases</h2>
+                        <h2 id="cc"></h2>
+                    </div>
+                </div>
+                <div id="i" class="i5">
+                    <div id="in">
+                        <i class="ri-arrow-up-circle-line"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Recovered Cases</h2>
+                        <h2 id="rc"></h2>
+                    </div>
+                </div>
+                <div id="i" class="i6">
+                    <div id="in">
+                        <i class="ri-list-unordered"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Total Cases</h2>
+                        <h2 id="tc"></h2>
+                    </div>
+                </div>
+                <div id="i" class="i7">
+                    <div id="in">
+                        <i class="ri-calendar-2-line"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Today Cases</h2>
+                        <h2 id="tcs"></h2>
+                    </div>
+                </div>
+                <div id="i" class="i8">
+                    <div id="in">
+                        <i class="ri-calendar-close-line"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Today Death</h2>
+                        <h2 id="td"></h2>
+                    </div>
+                </div>
+                <div id="i" class="i9">
+                    <div id="in">
+                        <i class="ri-calendar-check-line"></i>
+                    </div>
+                    <div id="n">
+                        <h2>Today Recovered</h2>
+                        <h2 id="tr"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    searchCountry=()=>{
+        let countryName=document.getElementById('countryInput').value;
+        let im=document.getElementById('im').style.width="80px";
+        // im.style.height="100px";
+        fetch(`https://disease.sh/v3/covid-19/countries/${countryName}?yesterday=false&allowNull=false&allowNegative=false&sort=false`)
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            document.getElementById('nm').innerHTML=data.country;
+            document.getElementById('im').src=data.countryInfo.flag;
+            document.getElementById('c').innerHTML=data.active;
+            document.getElementById('cc').innerHTML=data.deaths;
+            document.getElementById('rc').innerHTML=data.recovered;
+            document.getElementById('tc').innerHTML=data.cases;
+            document.getElementById('tcs').innerHTML=data.todayCases;
+            document.getElementById('td').innerHTML=data.todayDeaths;
+            document.getElementById('tr').innerHTML=data.todayRecovered;
+
+        })
+}
+    </script>
+</body>
+</html>

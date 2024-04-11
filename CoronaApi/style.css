@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#app{
+    /* border: 1px solid black; */
+    height: 380px;
+    width: 100%;
+    background-color: #003049;
+    position: relative;
+}
+#a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-top: 50px;
+    font-size: 25px;
+}
+#box{
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    height: 650px;
+    width: 80%;
+    border-radius: 15px;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 1px 5px 5px 1px gainsboro;
+    /* border: 1px solid rgba(255, 255, 255, 0.639); */
+}
+#ttl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    padding: 30px;
+    color: #003049;
+}
+#countryInput{
+    padding: 10px;
+    width: 20%;
+    border-radius: 5px;
+    border: 1px solid #003049;
+}
+#bt{
+    padding: 10px;
+    background-color: #003049;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #003049;
+}
+::placeholder{
+    color: #003049;
+}
+#inner{
+    /* border: 1px solid black; */
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#i{
+    height: 160px;
+    width: 100px;
+    flex-basis: 28%;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    color: white;
+    padding-left: 40px;
+}
+#in{
+    font-size: 29px;
+}
+.i1,.i5,.i9{
+    background-color: #f7b801;
+    box-shadow: 1px 5px 5px 1px rgb(240, 199, 239);
+}
+.i2,.i6,.i7{
+    background-color: #d81159;
+    box-shadow: 1px 5px 5px 1px rgb(240, 199, 239);
+}
+.i3,.i4,.i8{
+    background-color: #2c6e49;
+    box-shadow: 1px 5px 5px 1px rgb(240, 199, 239);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:580px)
+{
+    #in{
+        font-size: 20px;
+    }
+    #i{
+        height: auto;
+        margin: 10px;
+        flex-basis: 41%;
+        padding-left: 10px;
+    }
+    #box{
+        padding: 20px;
+        height: auto;
+    }
+    #app{
+        height: 480px;
+    }
+}
+
+@media(max-width:420px)
+{
+    #i{
+        height: auto;
+        margin: 10px;
+        flex-basis: 70%;
+    }
+    #box{
+        padding: 20px;
+        height: auto;
+    }
+    #app{
+        height: 480px;
+    }
+}
