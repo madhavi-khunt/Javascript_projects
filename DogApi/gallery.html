@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <h2>GALLERY Of DOG IMAGES</h2>
+    </div>
+    <div class="container" id="dogContainer"></div>
+    <button id="fetchButton" onclick="fetchButton()">FETCH</button>
+    
+    
+    
+    <script>
+        fetchButton=()=>{
+
+            const fetchButton = document.getElementById('fetchButton');
+        const dogContainer = document.getElementById('dogContainer');
+            fetch('https://dog.ceo/api/breeds/image/random/10')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const dogImages = data.message;
+                        dogContainer.innerHTML = '';
+
+                        for (const index in dogImages) {
+                            const imgElement = document.createElement('img');
+                            imgElement.src = dogImages[index];
+                            imgElement.alt = `Dog Image ${parseInt(index) + 1}`;
+                            dogContainer.appendChild(imgElement);
+                        }
+                    }
+                })
+        }
+
+    </script>
+</body>
+</html>
