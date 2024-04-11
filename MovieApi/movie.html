@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+    <div id="main">
+        <header>
+            <div id="logo">
+                <a href="">MOVIE APP</a>
+            </div>
+        </header>
+        <div id="box">
+            <div id="bo">
+                <div id="b1">
+                    <input type="text" name="" id="srch" placeholder="Enter movie name">
+                    <button type="button" onclick="get()" id="bt">Show</button>
+                </div>
+                <div id="b2">
+                    <table  cellpadding="5" cellspacing="4">
+                        <tr>
+                            <th colspan="2" id="s">MOVIE</th>
+                        </tr>
+                        <tr>
+                            <th id="b">Movie Name :</th>
+                            <td id="h"></td>
+                        </tr>
+                        <tr>
+                            <th id="b">Movie Actors :</th>
+                            <td id="a"></td>
+                        </tr>
+                        <tr>
+                            <th id="b">Movie Release :</th>
+                            <td id="r"></td>
+                        </tr>
+                        <tr>
+                            <th id="b">Movie Poster :</th>
+                            <td>
+                                <img src="" id="im" alt="">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        get=()=>
+        {
+            let m=document.getElementById('srch').value;
+            let key="cb52f917";
+            fetch(`http://www.omdbapi.com/?t=${m}&apikey=${key}`)
+            .then(response=>response.json())
+            .then(data=>
+            {
+                console.log(data);
+                document.getElementById('h').innerHTML=data.Title;
+                document.getElementById('a').innerHTML=data.Actors;
+                document.getElementById('r').innerHTML=data.Released;
+                document.getElementById('im').src=data.Poster;
+            })
+        }
+    </script>
+    
+</body>
+</html>
