@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary slip</title>
+    <style>
+        #sli{
+            /* border: 1px solid black; */
+            display: flex;
+            height: 725px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            /* margin-top: 100px; */
+        }
+        #sl{
+            width: 700px;
+            height:700px;
+            /* margin: 50px; */
+            border: 1px solid black;
+        }
+        #d{
+            /* border: 1px solid black; */
+            width: 100%;
+            height: 100px;
+        }
+        #d4{
+            /* border: 1px solid black; */
+            width: 100%;
+            height: 100px;
+            display: flex;
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* border: 1px solid black;  */
+        }
+        #d4 div{
+            /* border: 1px solid black; */
+            width: 100%;
+            padding-left: 5px;
+        }
+        #di{
+            /* border: 1px solid black; */
+            width: 100%;
+            height: 300px;
+        }
+        #p1{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .p{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pi{
+            padding-left: 10px;
+        }
+        hr{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sli">
+        <div id="sl">
+            <div id="d">
+                <p id="p1">Company Name</p>
+                <p id="p1">Address</p>
+                <p class="p">[Salary Slip]</p>
+            </div><hr>
+            <div id="d">
+                <span class="pi">Empployee Name : </span><span id="nm"></span><br><br>
+                <span class="pi">Designation : </span><span id="ds"></span><br><br>
+                <span class="pi">Period(Month) : </span><span id="mn"></span>
+            </div><hr>
+            <div id="di">
+                <table border="1" cellpadding="4" width="700px">
+                    <tr>
+                        <th>Earnings</th>
+                        <th>Amount</th>
+                        <th>Deduction</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Basic</td>   
+                        <td id="bs"></td>                     
+                        <td>PF Employee</td>
+                        <td id="pf"></td>
+                    </tr>
+                    <tr>
+                        <td>Allowances</td>
+                        <td id="al"></td>
+                        <td>ESI Employee</td>
+                        <td id="esi"></td>
+                    </tr>
+                    <tr>
+                        <td>House Rent all</td>
+                        <td id="hr"></td>
+                        <td>Professional Tax</td>
+                        <td id="pt"></td>
+                    </tr>
+                    <tr>
+                        <td>Conv all</td>
+                        <td id="ca"></td>
+                        <td>Income Tax</td>
+                        <td id="it"></td>
+                    </tr>
+                    <tr>
+                        <td>Trans all</td>
+                        <td id="ta">200</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>CEA</td>
+                        <td id="cea">100</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Apl all</td>
+                        <td id="apl">300</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Others</td>
+                        <td id="oth"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td id="tt"></td>
+                        <td>Total Deduction</td>
+                        <td id="ttl"></td>
+                    </tr>
+                </table>
+            </div><hr>
+            <div id="d4">
+                <div>
+                    <span>Cheque Number : </span><span id="cn"></span><br>
+                    <span>Date : </span><span id="dt"></span>
+                </div>
+                <div>   
+                    <span>Bank name : </span><span id="bn"></span>
+                    <p>(Sign)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        let  name=prompt("enter your name");
+        document.getElementById("nm").innerHTML=name;
+
+        let  desi=prompt("enter your desgination");
+        document.getElementById("ds").innerHTML=desi;
+
+        let mon=prompt("enter your starting month");
+        document.getElementById('mn').innerHTML=mon;
+
+        let basic=parseInt(prompt("enter your basic salary "));
+        document.getElementById("bs").innerHTML=basic;
+       
+        let allow=parseInt(prompt("enter your allowences "));
+        document.getElementById("al").innerHTML=allow;
+
+        let ESI=parseInt(prompt("enter your ESI "));
+        document.getElementById("esi").innerHTML=ESI;
+
+        let HR=parseInt(prompt("enter your House Rent  "));
+        document.getElementById("hr").innerHTML=HR;
+
+        let PT=parseInt(prompt("enter your Professional Tax"));
+        document.getElementById("pt").innerHTML=PT;
+
+        let PF=parseInt(prompt("enter your PF"));
+        document.getElementById("pf").innerHTML=PF;
+
+        let CA=parseInt(prompt("enter your Conveyance allowence "));
+        document.getElementById("ca").innerHTML=CA;
+
+        let It=parseInt(prompt("enter your Income Tax "));
+        document.getElementById("it").innerHTML=It;
+        
+        let TA=200;
+        let CEA=100;
+        let APL=300;
+
+        function sum(){
+            let sum= basic+allow+HR+  CA  +TA+CEA+APL;
+            document.getElementById("tt").innerHTML=sum;
+        }
+        sum();
+
+        function dud()
+        {
+            let tot=PF+ESI+PT+It;
+            document.getElementById('ttl').innerHTML=tot;
+        }
+        dud();
+
+        let Cn=parseInt(prompt("enter your Cheque number "));
+        document.getElementById("cn").innerHTML=Cn;
+
+        let Dt=parseInt(prompt("enter your Joining Date "));
+        document.getElementById("dt").innerHTML=Dt;
+
+        let Bn=prompt("enter your Bank Name ");
+        document.getElementById("bn").innerHTML=Bn;
+        
+
+    </script>
+    
+</body>
+</html>
